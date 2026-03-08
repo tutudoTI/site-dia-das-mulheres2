@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Para Você ❤️</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+background:linear-gradient(180deg,#0a0a0a,#1c1c1c);
+color:white;
+text-align:center;
+overflow-x:hidden;
+}
+
+/* CONTAINER */
+
+.container{
+max-width:600px;
+margin:auto;
+padding:30px;
+}
+
+/* TITULO */
+
+h1{
+color:#ff4da6;
+margin-top:30px;
+font-size:32px;
+}
+
+/* FOTO */
+
+.foto{
+width:220px;
+border-radius:20px;
+margin-top:25px;
+box-shadow:0 0 30px #ff4da6;
+}
+
+/* CARTA */
+
+.carta{
+background:#111;
+border-radius:20px;
+padding:25px;
+margin-top:30px;
+box-shadow:0 0 20px rgba(255,77,166,0.4);
+line-height:1.6;
+font-size:18px;
+}
+
+/* BOTÃO */
+
+button{
+margin-top:30px;
+padding:14px 28px;
+border:none;
+border-radius:12px;
+background:#ff4da6;
+color:white;
+font-size:18px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.1);
+background:#ff1a8c;
+}
+
+/* GALERIA */
+
+.galeria{
+margin-top:40px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+}
+
+.galeria img{
+width:100%;
+border-radius:15px;
+box-shadow:0 0 15px #ff4da6;
+}
+
+/* CORAÇÕES */
+
+.heart{
+position:fixed;
+top:-10px;
+color:#ff4da6;
+animation:cair linear forwards;
+}
+
+@keyframes cair{
+
+0%{
+transform:translateY(-10px);
+opacity:1;
+}
+
+100%{
+transform:translateY(100vh);
+opacity:0;
+}
+
+}
+
+/* CARTA INICIAL */
+
+.telaInicial{
+position:fixed;
+width:100%;
+height:100%;
+background:#000;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:10;
+}
+
+.envelope{
+font-size:80px;
+cursor:pointer;
+animation:pulsar 1.5s infinite;
+}
+
+@keyframes pulsar{
+
+0%{transform:scale(1)}
+50%{transform:scale(1.1)}
+100%{transform:scale(1)}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- TELA INICIAL -->
+
+<div class="telaInicial" id="inicio">
+
+<h2>Uma mensagem para você ❤️</h2>
+
+<div class="envelope" onclick="abrirCarta()">
+💌
+</div>
+
+<p>Clique na carta</p>
+
+</div>
+
+
+<div class="container">
+
+<h1>Feliz Dia da Mulher 🌹</h1>
+
+<img class="foto" src="fotoprin.jpg.jpeg">
+
+<div class="carta">
+
+<p>
+
+Feliz Dia da Mulher meu amor ❤️<br><br>
+
+Hoje é um dia especial para celebrar
+uma mulher incrível, forte, linda e que ilumina
+a minha vida todos os dias.<br><br>
+
+Desde que você entrou na minha vida,
+tudo ficou mais bonito.<br><br>
+
+Seu sorriso, sua forma de ver o mundo,
+seu carinho e sua companhia fazem
+cada dia valer a pena.<br><br>
+
+Sou muito feliz por ter você comigo
+e espero viver muitos momentos
+maravilhosos ao seu lado.<br><br>
+
+Eu te amo muito 💕
+
+</p>
+
+</div>
+
+
+<h1>Nossos Momentos 📸</h1>
+
+<div class="galeria">
+
+<img src="foto1.jpg.jpeg">
+<img src="foto2.jpg.jpeg">
+<img src="foto3.jpg.jpeg">
+<img src="foto4.jpg.jpeg">
+
+</div>
+
+</div>
+
+
+<!-- MÚSICA -->
+
+<audio id="musica" loop>
+
+<source src="musica.mp3" type="audio/mpeg">
+
+</audio>
+
+
+<script>
+
+function abrirCarta(){
+
+document.getElementById("inicio").style.display="none"
+
+document.getElementById("musica").play()
+
+}
+
+/* CORAÇÕES */
+
+function criarCoração(){
+
+const heart=document.createElement("div")
+
+heart.classList.add("heart")
+
+heart.innerHTML="❤️"
+
+heart.style.left=Math.random()*100+"vw"
+
+heart.style.fontSize=(Math.random()*20+15)+"px"
+
+heart.style.animationDuration=(Math.random()*3+3)+"s"
+
+document.body.appendChild(heart)
+
+setTimeout(()=>{
+
+heart.remove()
+
+},6000)
+
+}
+
+setInterval(criarCoração,300)
+
+</script>
+
+</body>
+</html>
